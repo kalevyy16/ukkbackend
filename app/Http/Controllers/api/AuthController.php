@@ -31,8 +31,7 @@ class AuthController extends Controller
 
         $user->pet()->create();
         $user->incomes()->create();
-        $user = $request->user()->load('pet', 'incomes', 'accessories');
-    return response()->json($user);
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
